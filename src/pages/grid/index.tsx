@@ -4,13 +4,8 @@
  * License: MIT
  * react and antd4 template
  */
-
 import React from 'react'
 
-import Routes from '../routes'
-
-function App() {
-	return <Routes />
+export default () => {
+	return <h1>Grid</h1>
 }
-
-export default App

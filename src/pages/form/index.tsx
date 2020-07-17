@@ -7,10 +7,6 @@
 
 import React from 'react'
 
-import Routes from '../routes'
-
-function App() {
-	return <Routes />
+export default () => {
+	return <h1>Form</h1>
 }
-
-export default App

@@ -5,12 +5,9 @@
  * react and antd4 template
  */
 
-import React from 'react'
+import { all } from 'redux-saga/effects'
+import loginSaga from '../pages/login/sagas'
 
-import Routes from '../routes'
-
-function App() {
-	return <Routes />
+export default function* rootSaga() {
+	yield all([loginSaga()])
 }
-
-export default App
