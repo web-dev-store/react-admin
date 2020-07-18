@@ -5,15 +5,11 @@
  * react and antd4 template
  */
 
-import React from 'react'
 import Loadable from 'react-loadable'
-import { Spin } from 'antd'
 
-function defaultLoading() {
-	return <Spin />
-}
+import PageLoading from './PageLoading'
 
-export default (loader: any, loading = defaultLoading) => {
+export default (loader: any, loading = PageLoading) => {
 	return Loadable({
 		loader,
 		loading
