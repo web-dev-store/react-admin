@@ -9,20 +9,28 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 
-export interface PrivateRouteProps {
-	isLogin?: boolean
-	component: any
-	path?: string
-}
+import { IRouteConfig } from './routes'
 
-export default ({ component: Component, ...restProps }: PrivateRouteProps) => {
+const PrivateRoute: React.FC<IRouteConfig> = (props) => {
+	const { auth, component: Component, ...restProps } = props
 	const { isLogin } = useSelector(({ user }: any) => user)
-	return (
+	let shouldControl = false
+
+	if (auth) {
+		if (typeof auth === 'function') {
+			shouldControl = auth()
+		}
+		if (Object.prototype.toString.call(auth) === '[object Boolean]') {
+			shouldControl = auth as boolean
+		}
+	}
+
+	return shouldControl ? (
 		<Route
 			{...restProps}
 			render={(props) =>
 				isLogin ? (
-					<Component {...props} />
+					Component && <Component {...props} />
 				) : (
 					<Redirect
 						to={{
@@ -33,5 +41,9 @@ export default ({ component: Component, ...restProps }: PrivateRouteProps) => {
 				)
 			}
 		/>
+	) : (
+		<Route {...props} />
 	)
 }
+
+export default PrivateRoute
