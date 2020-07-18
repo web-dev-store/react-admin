@@ -7,6 +7,8 @@
 
 import React from 'react'
 
-export default () => {
+const Result: React.FC = () => {
 	return <h1>Result</h1>
 }
+
+export default Result

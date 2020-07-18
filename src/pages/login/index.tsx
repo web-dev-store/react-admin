@@ -14,7 +14,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { login } from './actions'
 import './index.css'
 
-export default (props: any) => {
+const Login: React.FC = () => {
 	const dispatch = useDispatch()
 	const location = useLocation()
 	const user = useSelector(({ user }: any) => user)
@@ -94,3 +94,5 @@ export default (props: any) => {
 		</div>
 	)
 }
+
+export default Login

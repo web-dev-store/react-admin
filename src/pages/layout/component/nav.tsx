@@ -17,7 +17,7 @@ import {
 	HeartOutlined
 } from '@ant-design/icons'
 
-export default function Nav() {
+const Nav: React.FC = () => {
 	const location = useLocation()
 
 	return (
@@ -52,3 +52,5 @@ export default function Nav() {
 		</Menu>
 	)
 }
+
+export default Nav

@@ -12,7 +12,7 @@ import { SettingOutlined, LoginOutlined } from '@ant-design/icons'
 
 import { logout } from '../../login/actions'
 
-export default () => {
+const DropdownHeader: React.FC = () => {
 	const dispatch = useDispatch()
 	const user = useSelector(({ user }: any) => user)
 
@@ -41,3 +41,5 @@ export default () => {
 		</Dropdown>
 	)
 }
+
+export default DropdownHeader

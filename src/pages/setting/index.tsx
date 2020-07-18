@@ -7,6 +7,8 @@
 
 import React from 'react'
 
-export default () => {
+const Setting: React.FC = () => {
 	return <h1>Setting</h1>
 }
+
+export default Setting

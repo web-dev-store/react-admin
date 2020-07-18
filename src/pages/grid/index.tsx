@@ -4,8 +4,11 @@
  * License: MIT
  * react and antd4 template
  */
+
 import React from 'react'
 
-export default () => {
+const Grid: React.FC = () => {
 	return <h1>Grid</h1>
 }
+
+export default Grid
