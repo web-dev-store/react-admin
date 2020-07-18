@@ -12,12 +12,13 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 
 import Nav from './component/nav'
 import Dropdown from './component/dropdown'
-import { routes, RouteType } from '../../routes'
+import RouteConfig, { IRouteConfig } from '../../routes/routes'
+import PrivateRoute from '../../routes/PrivateRoute'
 import './index.css'
 
 const { Header, Sider, Content } = Layout
 
-export default (props: any) => {
+const LayoutPage: React.FC<any> = (props) => {
 	if (props.location.pathname === '/') props.history.push('/welcome')
 
 	const [collapsed, setCollapsed] = useState(false)
@@ -51,17 +52,15 @@ export default (props: any) => {
 					}}
 				>
 					<Switch>
-						{routes.map((Route_: RouteType) =>
-							Route_.auth ? (
-								// eslint-disable-next-line
-								<Route_.auth key={Route_.path + 'route'} {...Route_} />
-							) : (
-								<Route key={Route_.path + 'route'} {...Route_} />
-							)
-						)}
+						{RouteConfig.routes &&
+							RouteConfig.routes.map((layoutRouteConfig: IRouteConfig) => (
+								<PrivateRoute {...layoutRouteConfig} />
+							))}
 					</Switch>
 				</Content>
 			</Layout>
 		</Layout>
 	)
 }
+
+export default LayoutPage

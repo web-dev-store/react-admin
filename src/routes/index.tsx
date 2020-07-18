@@ -8,58 +8,26 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Loadable from '../utils/loadable'
-import Layout from '../pages/layout'
-import Login from '../pages/login'
-import Private from './private'
+import Loadable from '../utils/Loadable'
+import RouteConfig from './routes'
+import PrivateRoute from './PrivateRoute'
 
-export interface RouteType {
-	path?: string
-	component: any
-	auth?: any
-}
-
-export const routes: Array<RouteType> = [
-	{
-		path: '/welcome',
-		component: Loadable(() => import('../pages/welcome'))
-	},
-	{
-		path: '/dashboard',
-		component: Loadable(() => import('../pages/dashboard'))
-	},
-	{
-		path: '/form',
-		component: Loadable(() => import('../pages/form'))
-	},
-	{
-		path: '/grid',
-		component: Loadable(() => import('../pages/grid'))
-	},
-	{
-		path: '/detail',
-		component: Loadable(() => import('../pages/detail'))
-	},
-	{
-		path: '/result',
-		component: Loadable(() => import('../pages/result'))
-	},
-	{
-		path: '/error',
-		component: Loadable(() => import('../pages/error'))
-	},
-	{
-		component: Loadable(() => import('../pages/error/error-404'))
-	}
-]
-
-export default function Routes() {
+const Routes: React.FC = () => {
 	return (
 		<Router>
 			<Switch>
-				<Route exact path="/login" component={Login} />
-				<Private path="/" component={Layout} />
+				<Route
+					exact
+					path="/login"
+					component={Loadable(() =>
+						import(/* webpackChunkName: 'login' */ '../pages/login')
+					)}
+				/>
+
+				<PrivateRoute {...RouteConfig} />
 			</Switch>
 		</Router>
 	)
 }
+
+export default Routes
