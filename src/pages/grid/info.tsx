@@ -7,8 +7,9 @@
 
 import React from 'react'
 
-const GridInfo: React.FC = () => {
-	return <h1>Info</h1>
+const GridInfo: React.FC<any> = (props) => {
+	const { match } = props
+	return <h1>Info, params: {match.params.id}</h1>
 }
 
 export default GridInfo

@@ -53,7 +53,7 @@ const routeConfig: IRouteConfig = {
 			),
 			routes: [
 				{
-					path: '/grid/info',
+					path: '/grid/info/:id',
 					key: 'grid-info',
 					component: Loadable(() =>
 						import(/* webpackChunkName: 'grid-info' */ '../pages/grid/info')
