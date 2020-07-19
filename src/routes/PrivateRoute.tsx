@@ -42,7 +42,10 @@ const PrivateRoute: React.FC<IRouteConfig> = (props) => {
 			}
 		/>
 	) : (
-		<Route {...props} />
+		<Route
+			{...restProps}
+			render={(props) => Component && <Component {...props} {...restProps} />}
+		/>
 	)
 }
 
