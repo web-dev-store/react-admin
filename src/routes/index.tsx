@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Loadable from '../utils/Loadable'
 import RouteConfig from './routes'
-import PrivateRoute from './PrivateRoute'
+import CheckRoute from './CheckRoute'
 
 const Routes: React.FC = () => {
 	return (
@@ -24,7 +24,7 @@ const Routes: React.FC = () => {
 					)}
 				/>
 
-				<PrivateRoute {...RouteConfig} />
+				<CheckRoute {...RouteConfig} />
 			</Switch>
 		</Router>
 	)

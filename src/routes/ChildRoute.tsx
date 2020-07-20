@@ -8,7 +8,7 @@
 import React from 'react'
 
 import { IRouteConfig } from './routes'
-import PrivateRoute from './PrivateRoute'
+import CheckRoute from './CheckRoute'
 
 export interface IChildRoute {
 	children: any
@@ -17,7 +17,7 @@ export interface IChildRoute {
 const ChildRoute: React.FC<IChildRoute> = (props) => {
 	const { children } = props
 
-	return children.map((child: IRouteConfig) => <PrivateRoute {...child} />)
+	return children.map((child: IRouteConfig) => <CheckRoute {...child} />)
 }
 
 export default ChildRoute

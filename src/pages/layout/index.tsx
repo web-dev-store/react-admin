@@ -13,7 +13,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import Nav from './component/nav'
 import Dropdown from './component/dropdown'
 import RouteConfig, { IRouteConfig } from '../../routes/routes'
-import PrivateRoute from '../../routes/PrivateRoute'
+import CheckRoute from '../../routes/CheckRoute'
 import './index.css'
 
 const { Header, Sider, Content } = Layout
@@ -54,7 +54,7 @@ const LayoutPage: React.FC<any> = (props) => {
 					<Switch>
 						{RouteConfig.routes &&
 							RouteConfig.routes.map((layoutRouteConfig: IRouteConfig) => (
-								<PrivateRoute {...layoutRouteConfig} />
+								<CheckRoute {...layoutRouteConfig} />
 							))}
 					</Switch>
 				</Content>
