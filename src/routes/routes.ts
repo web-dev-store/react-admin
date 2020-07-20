@@ -11,7 +11,8 @@ import Loadable from '../utils/Loadable'
 
 export interface IRouteConfig extends RouteProps {
 	key: string
-	auth?: boolean | (() => boolean)
+	login?: boolean
+	authority?: Array<string>
 	routes?: Array<IRouteConfig>
 }
 
@@ -21,7 +22,7 @@ const routeConfig: IRouteConfig = {
 	component: Loadable(() =>
 		import(/* webpackChunkName: 'layout' */ '../pages/layout')
 	),
-	auth: true,
+	login: true,
 	routes: [
 		{
 			path: '/welcome',
@@ -64,6 +65,7 @@ const routeConfig: IRouteConfig = {
 		{
 			path: '/detail',
 			key: 'detail',
+			authority: ['user'],
 			component: Loadable(() =>
 				import(/* webpackChunkName: 'detail' */ '../pages/detail')
 			)
@@ -71,6 +73,7 @@ const routeConfig: IRouteConfig = {
 		{
 			path: '/result',
 			key: 'result',
+			authority: ['admin', 'user'],
 			component: Loadable(() =>
 				import(/* webpackChunkName: 'result' */ '../pages/result')
 			)
@@ -80,6 +83,13 @@ const routeConfig: IRouteConfig = {
 			key: 'error',
 			component: Loadable(() =>
 				import(/* webpackChunkName: 'error' */ '../pages/error')
+			)
+		},
+		{
+			path: '/403',
+			key: 'error-403',
+			component: Loadable(() =>
+				import(/* webpackChunkName: 'error-403' */ '../pages/error/error-403')
 			)
 		},
 		{
