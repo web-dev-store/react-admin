@@ -3,19 +3,67 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+	background-repeat: no-repeat;
+	background-position: center 110px;
+	background-size: 100%;
 }
 
-.login-area {
-	width: 300px;
+.login-wrapper {
+	width: 380px;
 	height: 300px;
 	padding: 24px;
 	/* border: 1px solid #eaeaea; */
 	border-radius: 3px;
-	margin-top: -150px;
+	margin-top: -300px;
+}
+
+.login-header {
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 .login-title {
+	color: rgba(0, 0, 0, 0.85);
+	font-weight: 600;
+	font-size: 36px;
+	font-family: Avenir, helvetica neue, Arial, Helvetica, sans-serif;
+}
+
+.login-logo {
+	height: 44px;
+	margin-left: -16px;
+	vertical-align: top;
+}
+
+.login-container .login-form-forgot {
+	float: right;
+}
+
+.other {
+	margin-top: 24px;
+	line-height: 22px;
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 30px;
+}
+
+.other-icon {
+	margin-left: 16px;
+	margin-right: 16px;
+	color: rgba(0, 0, 0, 0.2);
+	font-size: 24px;
+	vertical-align: middle;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.weixin:hover {
+	color: #86de44;
+}
+.qq:hover {
+	color: #1890ff;
+}
+.github:hover {
+	color: #000000;
 }
