@@ -5,16 +5,44 @@
  * react and antd4 template
  */
 
-import { IUserInfo } from '../pages/login/reducer'
+export interface ILoginInfo {
+	username: string
+	password: string
+	mobile: string
+	captcha: string
+	remember: boolean
+	loginType: string
+}
+
+export interface IUserInfo {
+	id: number
+	username: string
+	roles: Array<string>
+}
 
 const LoginService = {
-	login(userInfo: IUserInfo) {
+	login(loginInfo: ILoginInfo) {
+		console.log('loginInfo ----- ', loginInfo)
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				if (userInfo.username === 'admin' && userInfo.password === '123456') {
-					resolve({ id: 123, username: 'admin' })
-				} else {
-					reject({ err: { msg: 'username or password is wrong' } })
+				if (loginInfo.loginType === 'account') {
+					if (
+						loginInfo.username === 'admin' &&
+						loginInfo.password === '123456'
+					) {
+						resolve({ id: 123, username: 'admin' })
+					} else {
+						reject({ msg: { type: 'error', content: '用户名或密码错误' } })
+					}
+				} else if (loginInfo.loginType === 'mobile') {
+					if (
+						loginInfo.mobile === '13112341234' &&
+						loginInfo.captcha === '1234'
+					) {
+						resolve({ id: 123, username: 'admin' })
+					} else {
+						reject({ msg: { type: 'error', content: '手机号码验证失败' } })
+					}
 				}
 			}, 1000)
 		})
@@ -23,9 +51,9 @@ const LoginService = {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				if (userInfo.id === 123) {
-					resolve({ ...userInfo, score: '100' })
+					resolve({ ...userInfo, roles: ['admin'] })
 				} else {
-					reject({ msg: 'get user info failed' })
+					reject({ msg: { type: 'error', content: '获取登录用户信息失败' } })
 				}
 			}, 1000)
 		})
@@ -33,10 +61,19 @@ const LoginService = {
 	logout(userInfo: IUserInfo) {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				if (userInfo.id === 123) {
-					resolve({ tip: { msg: 'logout success' } })
+				resolve()
+			}, 1000)
+		})
+	},
+	sendCaptcha(mobile: string) {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (mobile === '13112341234') {
+					resolve({
+						msg: { type: 'success', content: '获取验证码成功！验证码为：1234' }
+					})
 				} else {
-					reject({ err: { msg: 'logout failed' } })
+					reject({ msg: { type: 'error', content: '获取验证码失败' } })
 				}
 			}, 1000)
 		})

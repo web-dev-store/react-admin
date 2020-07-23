@@ -5,21 +5,30 @@
  * react and antd4 template
  */
 
-export interface IUserInfo {
-	id: number
-	username: string
-	password: string
-	score: number
+import { IUserInfo } from '../../services/login'
+
+export interface ILoginState {
+	isLogin: boolean
+	loading: boolean
+	userInfo: IUserInfo | null
+	msg: any
+	remember: boolean
+	loginType: string
 }
 
-const userInit = {
+const loginStateInit: ILoginState = {
 	isLogin: false,
-	userInfo: { id: null, username: '', score: 0 },
 	loading: false,
-	err: { msg: '' }
+	userInfo: null,
+	msg: null,
+	remember: false,
+	loginType: ''
 }
 
-const loginReducer = (state = { ...userInit }, { type, payload }: any) => {
+const loginReducer = (
+	state = { ...loginStateInit },
+	{ type, payload }: any
+) => {
 	switch (type) {
 		case 'REQUEST':
 			return { ...state, loading: true }
@@ -28,14 +37,23 @@ const loginReducer = (state = { ...userInit }, { type, payload }: any) => {
 				...state,
 				isLogin: true,
 				loading: false,
-				userInfo: { ...payload }
+				userInfo: { ...payload.userInfo },
+				msg: null,
+				remember: payload.remember,
+				loginType: payload.loginType
 			}
 		case 'LOGIN_FAILURE':
-			return { ...state, ...userInit, ...payload }
+			return { ...state, ...loginStateInit, ...payload }
 		case 'LOGOUT_SUCCESS':
-			return { ...userInit, ...payload }
+			return { ...loginStateInit }
 		case 'LOGOUT_FAILURE':
-			return { ...state, ...userInit, ...payload }
+			return { ...loginStateInit }
+		case 'CLEAR_LOGIN_MESSAGE':
+			return { ...state, msg: null }
+		case 'SEND_CAPTCHA_SUCCESS':
+			return { ...loginStateInit, ...payload }
+		case 'SEND_CAPTCHA_FAILURE':
+			return { ...loginStateInit, ...payload }
 		default:
 			return state
 	}

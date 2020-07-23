@@ -5,15 +5,29 @@
  * react and antd4 template
  */
 
-import { LOGIN_SAGA, LOGOUT_SAGA } from './constants'
-import { IUserInfo } from './reducer'
+import {
+	LOGIN_SAGA,
+	LOGOUT_SAGA,
+	CLEAR_LOGIN_MESSAGE,
+	SEND_CAPTCHA
+} from './constants'
+import { ILoginInfo, IUserInfo } from '../../services/login'
 
-export const login = (userInfo: IUserInfo) => ({
+export const login = (loginInfo: ILoginInfo) => ({
 	type: LOGIN_SAGA,
-	payload: userInfo
+	payload: loginInfo
 })
 
 export const logout = (userInfo: IUserInfo) => ({
 	type: LOGOUT_SAGA,
 	payload: userInfo
+})
+
+export const clearLoginMsg = () => ({
+	type: CLEAR_LOGIN_MESSAGE
+})
+
+export const sendCaptcha = (mobile: string) => ({
+	type: SEND_CAPTCHA,
+	payload: mobile
 })
