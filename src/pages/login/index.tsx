@@ -36,7 +36,7 @@ const Login: React.FC = () => {
 				duration: 3
 			})
 			dispatch(clearLoginMsg())
-		}
+		} // eslint-disable-next-line
 	}, [msg])
 
 	if (isLogin) {

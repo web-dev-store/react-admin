@@ -27,7 +27,7 @@ const PhoneLogin: React.FC<IMobileLoginProps> = (props) => {
 
 	const onGetCaptcha = useCallback(async (mobile: string) => {
 		getCaptcha(mobile)
-		setTiming(true)
+		setTiming(true) // eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {
@@ -45,7 +45,7 @@ const PhoneLogin: React.FC<IMobileLoginProps> = (props) => {
 				})
 			}, 1000)
 		}
-		return () => clearInterval(interval)
+		return () => clearInterval(interval) // eslint-disable-next-line
 	}, [timing])
 
 	return (
@@ -119,7 +119,7 @@ const PhoneLogin: React.FC<IMobileLoginProps> = (props) => {
 				<Form.Item name="remember" valuePropName="checked" noStyle>
 					<Checkbox defaultChecked={false}>记住我</Checkbox>
 				</Form.Item>
-				<a className="login-form-forgot" href="">
+				<a className="login-form-forgot" href="/">
 					忘记密码？
 				</a>
 			</Form.Item>
