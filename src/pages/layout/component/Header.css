@@ -1,0 +1,25 @@
+.layout-header {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+	transition: background 0.3s, width 0.2s;
+}
+
+.layout-header-logo {
+	position: relative;
+	/* min-width: 165px; */
+	height: 48px;
+	overflow: hidden;
+	line-height: 48px;
+	transition: all 0.3s;
+}
+
+.layout-header-menu {
+	flex: 1 1 0%;
+}
+
+.layout-header-right {
+}
