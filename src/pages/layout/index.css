@@ -4,7 +4,7 @@
 
 #layout .trigger {
 	font-size: 18px;
-	line-height: 64px;
+	line-height: 52px;
 	padding: 0 24px;
 	cursor: pointer;
 	transition: color 0.3s;
@@ -15,10 +15,7 @@
 }
 
 #layout .logo {
-	height: 32px;
-	line-height: 32px;
 	background: rgba(255, 255, 255, 0.2);
-	margin: 16px;
 	text-align: center;
 }
 
