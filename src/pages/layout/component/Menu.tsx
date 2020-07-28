@@ -20,20 +20,39 @@ const Menu: React.FC<IMenuProps> = (props) => {
 	const location = useLocation()
 	const { type, mode, routes } = props
 
+	const parseMenu = (routes: any) => {
+		return routes.map((item: any) => {
+			const children = item.routes || []
+			if (item.menu) {
+				if (children.filter((child: any) => child.menu).length > 0) {
+					return (
+						<AntMenu.SubMenu
+							key={`/${item.key}`}
+							icon={<item.icon />}
+							title={item.name}
+						>
+							{parseMenu(children)}
+						</AntMenu.SubMenu>
+					)
+				} else {
+					return (
+						<AntMenu.Item key={`/${item.key}`} icon={<item.icon />}>
+							<Link to={item.path}>{item.name}</Link>
+						</AntMenu.Item>
+					)
+				}
+			}
+			return false
+		})
+	}
+
 	return (
 		<AntMenu
 			theme={type === 'default' ? 'light' : 'dark'}
 			mode={mode}
 			selectedKeys={[location.pathname]}
 		>
-			{routes.map(
-				(item: any) =>
-					item.menu && (
-						<AntMenu.Item key={`/${item.key}`} icon={<item.icon />}>
-							<Link to={item.path}>{item.name}</Link>
-						</AntMenu.Item>
-					)
-			)}
+			{parseMenu(routes)}
 		</AntMenu>
 	)
 }
