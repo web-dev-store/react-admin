@@ -12,6 +12,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import LayoutHeader from './Header'
 import LayoutSiderMenu from './SiderMenu'
 import LayoutContent from './Content'
+import LayoutContentHeader from './ContentHeader'
 import Menu from './Menu'
 
 export interface ILayoutComponentProps {
@@ -48,7 +49,10 @@ const DefaultTemp = (props: ILayoutComponentProps) => {
 					menu={<Menu routes={routeConfig.routes} type={type} mode="inline" />}
 					siderWidth={siderWidth}
 				/>
-				<LayoutContent type={type} routeConfig={routeConfig} />
+				<Layout className="site-layout">
+					<LayoutContentHeader />
+					<LayoutContent type={type} routeConfig={routeConfig} />
+				</Layout>
 			</Layout>
 		</Layout>
 	)
@@ -76,6 +80,7 @@ const InnerTemp = (props: ILayoutComponentProps) => {
 						}
 					)}
 				</LayoutHeader>
+				<LayoutContentHeader />
 				<LayoutContent type={type} routeConfig={routeConfig} />
 			</Layout>
 		</Layout>
@@ -95,6 +100,7 @@ const InlineTemp = (props: ILayoutComponentProps) => {
 				rightContentRender={rightContentRender}
 			/>
 			<Layout className="site-layout">
+				<LayoutContentHeader />
 				<LayoutContent type={type} routeConfig={routeConfig} />
 			</Layout>
 		</Layout>

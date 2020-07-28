@@ -56,7 +56,33 @@ const routeConfig: IRouteConfig = {
 			menu: true,
 			component: Loadable(() =>
 				import(/* webpackChunkName: 'dashboard' */ '../pages/dashboard')
-			)
+			),
+			routes: [
+				{
+					path: '/dashboard/a',
+					key: 'dashboard-a',
+					name: 'dashboard-a',
+					icon: ShoppingOutlined,
+					menu: true,
+					component: Loadable(() =>
+						import(
+							/* webpackChunkName: 'dashboard-a' */ '../pages/dashboard/dashboard-a'
+						)
+					)
+				},
+				{
+					path: '/dashboard/b',
+					key: 'dashboard-b',
+					name: 'dashboard-b',
+					icon: ShoppingOutlined,
+					menu: true,
+					component: Loadable(() =>
+						import(
+							/* webpackChunkName: 'dashboard-b' */ '../pages/dashboard/dashboard-b'
+						)
+					)
+				}
+			]
 		},
 		{
 			path: '/form',

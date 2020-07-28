@@ -6,9 +6,17 @@
  */
 
 import React from 'react'
+import { Switch } from 'react-router-dom'
 
-const DashBoard: React.FC = () => {
-	return <h1>DashBoard</h1>
+import ChildRoute from '../../routes/ChildRoute'
+
+const DashBoard: React.FC<any> = (props) => {
+	const { routes } = props
+	return (
+		<Switch>
+			<ChildRoute children={routes} />
+		</Switch>
+	)
 }
 
 export default DashBoard
