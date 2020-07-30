@@ -29,7 +29,7 @@ const LayoutContent: React.FC<ILayoutContentProps> = (props) => {
 			style={{
 				margin: '24px 16px',
 				padding: 24,
-				minHeight: 280
+				minHeight: 'unset'
 			}}
 		>
 			<Switch>

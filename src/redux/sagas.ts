@@ -7,7 +7,8 @@
 
 import { all } from 'redux-saga/effects'
 import loginSaga from '../pages/login/sagas'
+import gridPageSaga from '../pages/grid/sagas'
 
 export default function* rootSaga() {
-	yield all([loginSaga()])
+	yield all([loginSaga(), gridPageSaga()])
 }
