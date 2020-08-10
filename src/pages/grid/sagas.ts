@@ -26,10 +26,10 @@ function* queryProduct({ payload }: any) {
 		yield put({
 			type: QUERY_PRODUCT_SUCCESS,
 			payload: {
-				products: res.data,
+				products: res.data.products,
 				queryParams: payload.queryParams || {},
 				pagination: {
-					total: res.total,
+					total: res.data.total,
 					pageSize: payload.pagination.pageSize,
 					current: payload.pagination.current || 1
 				}
