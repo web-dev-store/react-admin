@@ -10,16 +10,19 @@ import { Route } from 'react-router-dom'
 
 import { IRouteConfig } from './routes'
 import getCheckRouteComponent from './getCheckRouteComponent'
+import ErrorBoundary from '../components/ErrorBoundary'
 
 const CheckRoute: React.FC<IRouteConfig> = (props) => {
 	const { component: Component, ...restProps } = props
 	const RouteComponent = getCheckRouteComponent(props)
 
 	return (
-		<Route
-			{...restProps}
-			render={(props) => <RouteComponent {...props} {...restProps} />}
-		/>
+		<ErrorBoundary>
+			<Route
+				{...restProps}
+				render={(props) => <RouteComponent {...props} {...restProps} />}
+			/>
+		</ErrorBoundary>
 	)
 }
 
