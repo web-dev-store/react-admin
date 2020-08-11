@@ -5,8 +5,9 @@
  * react and antd4 template
  */
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Route } from 'react-router-dom'
 import {
 	Row,
 	Col,
@@ -19,7 +20,8 @@ import {
 	Table,
 	DatePicker,
 	Dropdown,
-	Menu
+	Menu,
+	Drawer
 } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import './index.css'
@@ -27,6 +29,7 @@ import './index.css'
 import { query } from './actions'
 import gridPageReducer from './reducer'
 import { useInjectReducer } from '../../utils/injectReducer'
+import FormPage from '../form'
 
 const Grid: React.FC = () => {
 	useInjectReducer({
@@ -99,6 +102,8 @@ const Grid: React.FC = () => {
 			dataIndex: 'user'
 		}
 	]
+
+	const [visible, setVisible] = useState(false)
 
 	return (
 		<div>
@@ -175,7 +180,11 @@ const Grid: React.FC = () => {
 			<Divider />
 			<Row gutter={[0, 24]} justify="end">
 				<Col span={12} style={{ textAlign: 'right' }}>
-					<Button type="primary" style={{ marginRight: 20 }}>
+					<Button
+						type="primary"
+						style={{ marginRight: 20 }}
+						onClick={() => setVisible(true)}
+					>
 						Add
 					</Button>
 					<Dropdown
@@ -206,6 +215,15 @@ const Grid: React.FC = () => {
 					/>
 				</Col>
 			</Row>
+			<Drawer
+				title="Create a new account"
+				width={'100%'}
+				onClose={() => setVisible(false)}
+				visible={visible}
+				bodyStyle={{ paddingBottom: 80 }}
+			>
+				<Route children={<FormPage />} />
+			</Drawer>
 		</div>
 	)
 }
