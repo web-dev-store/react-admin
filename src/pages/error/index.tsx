@@ -6,9 +6,30 @@
  */
 
 import React from 'react'
+import { Result } from 'antd'
 
-const ErrorPage: React.FC = () => {
-	return <h1>Error</h1>
+export interface IErrorPageProps {
+	tilte?: string
+	subTitle?: string
+	extra?: React.ReactNode
+}
+
+const ErrorPage: React.FC<IErrorPageProps> = (props) => {
+	return (
+		<Result
+			status="error"
+			title={props.tilte}
+			subTitle={props.subTitle}
+			extra={props.extra}
+		>
+			{props.children}
+		</Result>
+	)
+}
+
+ErrorPage.defaultProps = {
+	tilte: 'Error Page',
+	subTitle: 'Sorry, something went wrong.'
 }
 
 export default ErrorPage
