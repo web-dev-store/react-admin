@@ -8,7 +8,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import App from './pages/App'
@@ -18,12 +18,29 @@ import * as serviceWorker from './pwa/serviceWorker'
 
 import './index.css'
 import 'antd/dist/antd.css'
+import { ConfigProvider } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
+import enUS from 'antd/es/locale/en_US'
+
+const lang: any = {
+	zh: zhCN,
+	en: enUS
+}
+
+const Root: React.FC = () => {
+	const global = useSelector(({ global }: any) => global)
+	return (
+		<ConfigProvider locale={lang[global.lang]}>
+			<App />
+		</ConfigProvider>
+	)
+}
 
 ReactDOM.render(
 	<Provider store={store}>
 		<PersistGate loading={null} persistor={persistor}>
 			<BrowserRouter>
-				<App />
+				<Root />
 			</BrowserRouter>
 		</PersistGate>
 	</Provider>,

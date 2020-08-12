@@ -5,7 +5,7 @@
  * react and antd4 template
  */
 
-import { combineReducers, Action } from 'redux'
+import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
@@ -26,8 +26,10 @@ const initRootState: IRootState = {
 	theme: 'default'
 }
 
-function globalReducer(state = initRootState, action: Action) {
-	switch (action.type) {
+function globalReducer(state = initRootState, { type, payload }: any) {
+	switch (type) {
+		case 'CHANGE_LANG':
+			return Object.assign({}, state, { lang: payload })
 		default:
 			return state
 	}
