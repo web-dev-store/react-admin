@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[10],{227:function(e,t,a){"use strict";a.r(t);var r=a(0),i=a.n(r),n=a(232),s=a(218);t.default=function(){return i.a.createElement(n.a,{status:"404",title:"404",subTitle:"Sorry, the page you visited does not exist.",extra:i.a.createElement(s.a,{type:"primary"},"Back Home")})}}}]);
+//# sourceMappingURL=error-404.477dfaec.chunk.js.map

@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[9],{226:function(t,e,a){"use strict";a.r(e);var r=a(0),n=a.n(r),s=a(232),c=a(218);e.default=function(){return n.a.createElement(s.a,{status:"403",title:"403",subTitle:"Sorry, you are not authorized to access this page.",extra:n.a.createElement(c.a,{type:"primary"},"Back Home")})}}}]);
+//# sourceMappingURL=error-403.50e7a7e0.chunk.js.map
