@@ -7,6 +7,8 @@
 
 ## Demo
 
+[Preview Demo](https://web-dev-store.github.io/react-admin/)
+
 ## Usage
 
 ```shell
