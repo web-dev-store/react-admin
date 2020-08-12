@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[13],{222:function(a,n,t){"use strict";t.r(n);var e=t(0),r=t.n(e);n.default=function(a){var n=a.match;return r.a.createElement("h1",null,"Info, params: ",n.params.id)}}}]);
-//# sourceMappingURL=grid-info.a0339c40.chunk.js.map

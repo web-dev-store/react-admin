@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[8],{225:function(t,e,r){"use strict";r.r(e);var a=r(0),i=r.n(a),n=r(232),s=function(t){return i.a.createElement(n.a,{status:"error",title:t.tilte,subTitle:t.subTitle,extra:t.extra},t.children)};s.defaultProps={tilte:"Error Page",subTitle:"Sorry, something went wrong."},e.default=s}}]);
-//# sourceMappingURL=error.473795fe.chunk.js.map
