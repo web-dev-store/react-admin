@@ -1,44 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Admin
 
-## Available Scripts
+> An simple and lightweight solution for enterprise applications built upon Ant Design and React
 
-In the project directory, you can run:
+![GitHub](https://img.shields.io/github/license/web-dev-store/react-admin?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/web-dev-store/react-admin?style=flat-square)
 
-### `yarn start`
+## Demo
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```shell
+git clone https://github.com/web-dev-store/react-admin.git
 
-### `yarn test`
+cd react-admin
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install
 
-### `yarn build`
+npm run start
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# open browser and visit http://localhost:3000
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- TypeScript
+- Login
+- Custom layout
+- Route and auth
+- Widget dashboard
+- Grid demo
+- Form demo
+- Mock server
+- Git hook
 
-### `yarn eject`
+## Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [react V16.13.1](https://facebook.github.io/react/)
+- [react-router-dom V5.2.0](https://github.com/ReactTraining/react-router)
+- [redux V4.0.5](https://github.com/reduxjs/redux)
+- [redux-saga V1.1.3](https://github.com/redux-saga/redux-saga)
+- [antd V4.4.2](https://ant.design/)
+- [axios V0.19.2](https://github.com/axios/axios)
+- [echarts V4.8.0](https://echarts.apache.org/zh/index.html)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Todos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Mobile support
+- Screenfull
+- Custom theme
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[MIT](http://opensource.org/licenses/MIT)
