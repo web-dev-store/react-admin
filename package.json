@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"author": "ssy <286506460@qq.com>",
 	"description": "react and antd4 template",
-	"homepage": "./",
+	"homepage": "https://web-dev-store.github.io/react-admin",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/web-dev-store/react-admin.git"
@@ -45,6 +45,8 @@
 		"typescript": "~3.7.2"
 	},
 	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -79,6 +81,7 @@
 		"@types/react-router-dom": "^5.1.5",
 		"commitizen": "^4.1.2",
 		"cz-conventional-changelog": "^3.2.0",
+		"gh-pages": "^3.1.0",
 		"husky": "^4.2.5",
 		"json-server": "^0.16.1",
 		"mockjs": "^1.1.0",
